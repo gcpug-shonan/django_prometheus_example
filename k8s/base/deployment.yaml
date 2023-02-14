@@ -13,7 +13,7 @@ spec:
   minReadySeconds: 30
   selector:
     matchLabels:
-      name: example
+      app: example
   replicas: 3
   template:
     metadata:
@@ -30,7 +30,7 @@ spec:
           protocol: TCP
         readinessProbe:
           httpGet:
-            path: /
+            path: /metrics # fix me
             port: http-app
             scheme: HTTP
           initialDelaySeconds: 10
@@ -40,7 +40,7 @@ spec:
           timeoutSeconds: 2
         livenessProbe:
           httpGet:
-            path: /
+            path: /metrics # fix me
             port: http-app
             scheme: HTTP
           initialDelaySeconds: 10
