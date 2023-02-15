@@ -19,6 +19,7 @@ spec:
     metadata:
       labels:
         app: example
+        env: fix-me
     spec:
       serviceAccountName: default # TBD
       containers:

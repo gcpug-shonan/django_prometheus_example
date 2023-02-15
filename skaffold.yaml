@@ -7,3 +7,8 @@ profiles:
     kustomize:
       paths:
       - ./k8s/overlays/prd/
+- name: qa
+  deploy:
+    kustomize:
+      paths:
+      - ./k8s/overlays/qa/

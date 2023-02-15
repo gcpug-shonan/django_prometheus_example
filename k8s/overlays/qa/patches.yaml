@@ -4,13 +4,13 @@ kind: Deployment
 metadata:
   name: example
 spec:
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
-        env: prd
+        env: qa
     spec:
-      serviceAccountName: example-prd
+      serviceAccountName: example-qa
       containers:
       - name: app
         image: gcr.io/gcpug-shonan-202302-demo-2/example-app:v1
