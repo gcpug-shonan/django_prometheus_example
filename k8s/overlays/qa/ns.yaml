@@ -1,0 +1,11 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: example-qa
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: example-qa
+  namespace: example-qa

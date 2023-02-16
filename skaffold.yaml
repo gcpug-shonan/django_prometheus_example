@@ -1,0 +1,14 @@
+---
+apiVersion: skaffold/v2beta16
+kind: Config
+profiles:
+- name: prd
+  deploy:
+    kustomize:
+      paths:
+      - ./k8s/overlays/prd/
+- name: qa
+  deploy:
+    kustomize:
+      paths:
+      - ./k8s/overlays/qa/

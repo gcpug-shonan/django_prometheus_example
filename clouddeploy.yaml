@@ -1,0 +1,43 @@
+---
+apiVersion: deploy.cloud.google.com/v1
+kind: DeliveryPipeline
+metadata:
+  name: example-app
+description: exampl-app application pipeline
+serialPipeline:
+  stages:
+  - targetId: qa
+    profiles:
+    - qa
+  - targetId: prd
+    profiles:
+    - prd
+---
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: prd
+description: production cluster
+requireApproval: true
+gke:
+  cluster: projects/gcpug-shonan-202302-demo-2/locations/asia-northeast1-a/clusters/demo
+executionConfigs:
+- defaultPool:
+    serviceAccount: "deployer@gcpug-shonan-202302-demo-2.iam.gserviceaccount.com"
+  usages:
+  - DEPLOY
+  - RENDER
+---
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: qa
+description: production cluster
+gke:
+  cluster: projects/gcpug-shonan-202302-demo-2/locations/asia-northeast1-a/clusters/demo
+executionConfigs:
+- defaultPool:
+    serviceAccount: "deployer@gcpug-shonan-202302-demo-2.iam.gserviceaccount.com"
+  usages:
+  - DEPLOY
+  - RENDER

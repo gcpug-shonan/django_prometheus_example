@@ -1,0 +1,16 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        env: prd
+    spec:
+      serviceAccountName: example-prd
+      containers:
+      - name: app
+        image: gcr.io/gcpug-shonan-202302-demo-2/example-app:v1
